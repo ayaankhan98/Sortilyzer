@@ -1,83 +1,66 @@
-#include <SFML/Graphics.hpp>
-#include <ctime>
 #include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <windows.h>
+#include <string>
+
+
+#include <SFML/Graphics.hpp>
+#include <imgui.h>
+#include <imgui-SFML.h>
+
+#include "Test.hpp"
+#include "BubbleSortTest.hpp"
 
 int main() {
 	srand(time(0));
-	const int WIDTH = 1680;
-	const int HEIGHT = 768;
-	const int N = 80;
-	sf::RenderWindow window;
-	window.create(sf::VideoMode(WIDTH, HEIGHT), "My Application Window");
 
-	std::vector<int> stripHeight(N);
-	auto generate = [&]() {
-		for (int i = 0; i < stripHeight.size(); i++) {
-			stripHeight[i] = 20 + rand() % 300;
-		}
-	};
-
-	generate();
-
-	std::vector<sf::Vector2f> stripCoordinate(N);
-	int xPos = 0, stripWidth = 20;
-	for (int i = 0; i < stripCoordinate.size(); i++) {
-		stripCoordinate[i] = { static_cast<float>(xPos + stripWidth), static_cast<float>(HEIGHT - stripHeight[i] - 200) };
-		xPos += stripWidth;
-	}
-
-	auto update = [&]() {
-		bool swapped = false;
-		for (int i = 0; i < N - 1; i++) {
-			for (int j = 0; j < N - i - 1; j++) {
-				if (stripHeight[j] > stripHeight[j + 1]) {
-					std::swap(stripHeight[j], stripHeight[j + 1]);
-					swapped = true;
-					break;
-				}
-				if (swapped)
-					break;
-			}
-		}
-
-		for (int i = 0; i < stripCoordinate.size(); i++) {
-			stripCoordinate[i].y = static_cast<float>(HEIGHT - stripHeight[i] - 200);
-		}
-	};
-
-	auto draw = [&]() {
-		for (int i = 0; i < stripCoordinate.size(); i++) {
-			sf::RectangleShape strip;
-			strip.setSize({ static_cast<float>(stripWidth), static_cast<float>(stripHeight[i]) });
-			strip.setPosition(stripCoordinate[i]);
-			strip.setOutlineColor(sf::Color::Red);
-			strip.setOutlineThickness(1.0);
-			strip.setFillColor(sf::Color::Green);
-			window.draw(strip);
-		}
-	};
+	int _WIDTH = 1640;
+	int _HEIGHT = 768;
+	std::string windowTitle = "My Application Window";
+	sf::RenderWindow window(sf::VideoMode(_WIDTH, _HEIGHT), windowTitle);
+	
+	window.setActive(true);
 
 	bool isOpenWindow = true;
+	ImGui::SFML::Init(window);
+	sf::Clock deltaClock;
+
+	Test* currentTest(nullptr);
+	TestMenu* testMenu = new TestMenu(currentTest);
+	currentTest = testMenu; 
+
+	testMenu->RegisterTest<BubbleSortTest>("Bubble Sort", window);
+
+
 	while (isOpenWindow) {
 		sf::Event e;
 		while (window.pollEvent(e)) {
+			ImGui::SFML::ProcessEvent(e);
 			if (e.type == sf::Event::Closed) {
 				isOpenWindow = false;
 			}
 		}
-		window.clear(sf::Color(sf::Color::Black));
-		draw();
-		if (!std::is_sorted(stripHeight.begin(), stripHeight.end())) {
-			Sleep(10);
-			update();
+
+		ImGui::SFML::Update(window, deltaClock.restart());
+		// Render Imgui;
+
+		window.clear();
+		// Draw shape in window window.draw(shape)
+		if (currentTest) {
+			currentTest->OnRender();
+			currentTest->OnUpdate();
+			ImGui::Begin("Test Menu");
+
+			if (currentTest != testMenu && ImGui::Button("<-")) {
+				delete currentTest;
+				currentTest = testMenu;
+			}
+			currentTest->OnImGuiRender();
+
+			ImGui::End();
 		}
-		if (e.type == sf::Event::MouseButtonPressed) {
-			generate();
-		}
+	
+
+		ImGui::SFML::Render(window);
 		window.display();
 	}
-	return 0;
+	ImGui::SFML::Shutdown();
 }

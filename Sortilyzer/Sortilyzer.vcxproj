@@ -146,6 +146,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\BubbleSortTest.cpp" />
+    <ClCompile Include="src\Test.cpp" />
     <ClCompile Include="src\Dependencies\imgui-sfml\imgui-SFML.cpp" />
     <ClCompile Include="src\Dependencies\imgui\imgui.cpp" />
     <ClCompile Include="src\Dependencies\imgui\imgui_demo.cpp" />
@@ -155,6 +157,8 @@
     <ClCompile Include="src\Dependencies\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\BubbleSortTest.hpp" />
+    <ClInclude Include="src\Test.hpp" />
     <ClInclude Include="src\Dependencies\imgui-sfml\imconfig-SFML.h" />
     <ClInclude Include="src\Dependencies\imgui-sfml\imgui-SFML.h" />
     <ClInclude Include="src\Dependencies\imgui-sfml\imgui-SFML_export.h" />
