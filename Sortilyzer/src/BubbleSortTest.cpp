@@ -1,49 +1,42 @@
 #include "BubbleSortTest.hpp"
+#include "Core.hpp"
+
 #include <imgui.h>
 
-BubbleSortTest::BubbleSortTest(sf::RenderWindow* window):
-	m_N(20), m_Window(window) {
-	m_StripCoordinate.resize(m_N);
-	m_StripHeight.resize(m_N);
-	generateStripHeigt();
-	generateStripCoordinate();
+sortilyzer::test::BubbleSortTest::BubbleSortTest(sf::RenderWindow* window) {
+	m_Window = window;
+	std::cout << "Creating Bubble Sort Test\n";
 }
 
-void BubbleSortTest::generateStripHeigt() {
-	for (int i = 0; i < m_N; i++) {
-		m_StripHeight[i] = 20 + (rand() % 300);
+void sortilyzer::test::BubbleSortTest::OnImGuiRender() {
+	if (ImGui::Button("Restart Simulation")) {
+		GenerateStipHeight();
 	}
+	ImGui::ColorPicker4("Strip Color", m_StripColor);
 }
 
-void BubbleSortTest::generateStripCoordinate() {
-	float xPos = 0;
-	for (int i = 0; i < m_N; i++) {
-		m_StripCoordinate[i] = sf::Vector2f(xPos + 10, static_cast<float>(768 - m_StripHeight[i] - 200));
-		xPos += 20;
-	}
-}
-
-void BubbleSortTest::OnImGuiRender() {
-}
-
-void BubbleSortTest::OnRender() {
-	float stripWidth = 20;
-	for (int i = 0; i < m_N; i++) {
+void sortilyzer::test::BubbleSortTest::OnRender() {
+	sf::Color currentFillColor = sf::Color(
+		static_cast<uint8_t>(m_StripColor[0] * 255), 
+		static_cast<uint8_t>(m_StripColor[1] * 255),
+		static_cast<uint8_t>(m_StripColor[2] * 255),
+		static_cast<uint8_t>(m_StripColor[3] * 255)
+	);
+	for (int i = 0; i < sortilyzer::SIZE; i++) {
 		sf::RectangleShape strip;
-		strip.setFillColor(sf::Color::Green);
+		strip.setFillColor(currentFillColor);
 		strip.setPosition(m_StripCoordinate[i]);
 		strip.setOutlineColor(sf::Color::Magenta);
-		strip.setSize({ static_cast<float>(stripWidth), static_cast<float>(m_StripHeight[i]) });
+		strip.setSize({ static_cast<float>(sortilyzer::_STRIP_WIDTH), static_cast<float>(m_StripHeight[i]) });
 		strip.setOutlineThickness(1.0);
-		std::cout << "Drawing strip\n";
 		m_Window->draw(strip);
 	}
 }
 
-void BubbleSortTest::OnUpdate() {
+void sortilyzer::test::BubbleSortTest::OnUpdate() {
 	bool swapped = false;
-	for (int i = 0; i < m_N - 1; i++) {
-		for (int j = 0; j < m_N - i - 1; j++) {
+	for (int i = 0; i < sortilyzer::SIZE - 1; i++) {
+		for (int j = 0; j < sortilyzer::SIZE - i - 1; j++) {
 			if (m_StripHeight[j] > m_StripHeight[j + 1]) {
 				std::swap(m_StripHeight[j], m_StripHeight[j + 1]);
 				swapped = true;
@@ -54,7 +47,7 @@ void BubbleSortTest::OnUpdate() {
 		}
 	}
 
-	for (int i = 0; i < m_StripCoordinate.size(); i++) {
-		m_StripCoordinate[i].y = static_cast<float>(768 - m_StripHeight[i] - 200);
+	for (int i = 0; i < sortilyzer::SIZE; i++) {
+		m_StripCoordinate[i].y = static_cast<float>(sortilyzer::_HEIGHT - m_StripHeight[i] - sortilyzer::_Y_DOWN_OFFSET);
 	}
 }
