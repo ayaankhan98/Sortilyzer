@@ -45,6 +45,15 @@
     <ClCompile Include="src\Test\Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\SelectionSortTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\QuickSortTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InsertitionSortTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Dependencies\imgui\imconfig.h">
@@ -387,6 +396,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Test\Test.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SelectionSortTest.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InsertitionSortTest.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\QuickSortTest.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
