@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace sortilyzer {
 constexpr int _WIDTH = 1640;
 constexpr int _HEIGHT = 768;

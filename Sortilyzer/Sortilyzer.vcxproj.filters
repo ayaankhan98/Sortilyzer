@@ -51,7 +51,7 @@
     <ClCompile Include="src\QuickSortTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\InsertitionSortTest.cpp">
+    <ClCompile Include="src\InsertionSortTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -401,10 +401,10 @@
     <ClInclude Include="src\SelectionSortTest.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\InsertitionSortTest.hpp">
+    <ClInclude Include="src\QuickSortTest.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\QuickSortTest.hpp">
+    <ClInclude Include="src\InsertionSortTest.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
