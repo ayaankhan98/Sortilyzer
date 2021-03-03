@@ -1,25 +1,16 @@
-#include "BubbleSortTest.hpp"
-
 #include <imgui.h>
 
 #include "Core.hpp"
+#include "InsertionSortTest.hpp"
 
-sortilyzer::test::BubbleSortTest::BubbleSortTest(sf::RenderWindow *window) {
+sortilyzer::test::InsertionSortTest::InsertionSortTest(
+    sf::RenderWindow *window) {
   m_Window = window;
-  prevI = 0;
-  prevJ = 0;
-  std::cout << "Creating Bubble Sort Test\n";
+  prevI = 1, prevJ = 0;
+  std::cout << "Creating Insertion Sort Test\n";
 }
 
-void sortilyzer::test::BubbleSortTest::OnImGuiRender() {
-  if (ImGui::Button("Restart Simulation")) {
-    prevI = prevJ = 0;
-    GenerateStipHeight();
-  }
-  ImGui::ColorPicker4("Strip Color", m_StripColor);
-}
-
-void sortilyzer::test::BubbleSortTest::OnRender() {
+void sortilyzer::test::InsertionSortTest::OnRender() {
   sf::Color currentFillColor =
       sf::Color(static_cast<uint8_t>(m_StripColor[0] * 255),
                 static_cast<uint8_t>(m_StripColor[1] * 255),
@@ -37,27 +28,31 @@ void sortilyzer::test::BubbleSortTest::OnRender() {
   }
 }
 
-void sortilyzer::test::BubbleSortTest::OnUpdate() {
+void sortilyzer::test::InsertionSortTest::OnUpdate() {
   bool swapped = false;
-  for (int i = prevI; i < sortilyzer::SIZE - 1; i++) {
-    for (int j = prevJ; j < sortilyzer::SIZE - i - 1; j++) {
-      prevJ = j;
-      if (j == sortilyzer::SIZE - i - 2) {
-        prevI = ++i;
-        prevJ = 0;
-      }
-      if (m_StripHeight[j] > m_StripHeight[j + 1]) {
-        std::swap(m_StripHeight[j], m_StripHeight[j + 1]);
-        swapped = true;
-        break;
-      }
+  for (int i = 1; i < sortilyzer::SIZE; i++) {
+    int currentElement = m_StripHeight[i];
+    int j = i - 1;
+    if (j >= 0 && m_StripHeight[j] > currentElement) {
+      m_StripHeight[j + 1] = m_StripHeight[j];
+      swapped = true;
+      j--;
     }
+    m_StripHeight[j + 1] = currentElement;
+    prevI = i, prevJ = j;
     if (swapped)
       break;
   }
-
   for (int i = 0; i < sortilyzer::SIZE; i++) {
     m_StripCoordinate[i].y = static_cast<float>(
         sortilyzer::_HEIGHT - m_StripHeight[i] - sortilyzer::_Y_DOWN_OFFSET);
   }
+}
+
+void sortilyzer::test::InsertionSortTest::OnImGuiRender() {
+  if (ImGui::Button("Restart Simulation")) {
+    prevI = 1, prevJ = 0;
+    GenerateStipHeight();
+  }
+  ImGui::ColorPicker4("Strip Color", m_StripColor);
 }

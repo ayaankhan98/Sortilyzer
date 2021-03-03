@@ -145,7 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\InsertitionSortTest.cpp" />
+    <ClCompile Include="src\InsertionSortTest.cpp" />
     <ClCompile Include="src\QuickSortTest.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\BubbleSortTest.cpp" />
@@ -162,7 +162,7 @@
   <ItemGroup>
     <ClInclude Include="src\BubbleSortTest.hpp" />
     <ClInclude Include="src\Core.hpp" />
-    <ClInclude Include="src\InsertitionSortTest.hpp" />
+    <ClInclude Include="src\InsertionSortTest.hpp" />
     <ClInclude Include="src\QuickSortTest.hpp" />
     <ClInclude Include="src\SelectionSortTest.hpp" />
     <ClInclude Include="src\Test\Test.hpp" />

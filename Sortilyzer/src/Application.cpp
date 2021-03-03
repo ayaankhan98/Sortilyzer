@@ -6,6 +6,7 @@
 #include <string>
 
 #include "BubbleSortTest.hpp"
+#include "InsertionSortTest.hpp"
 #include "Core.hpp"
 #include "Test/Test.hpp"
 
@@ -29,6 +30,8 @@ int main() {
 
   testMenu->RegisterTest<sortilyzer::test::BubbleSortTest>("Bubble Sort",
                                                            window);
+  testMenu->RegisterTest<sortilyzer::test::InsertionSortTest>("Insertion Sort",
+                                                              window);
 
   while (isOpenWindow) {
     sf::Event e;
