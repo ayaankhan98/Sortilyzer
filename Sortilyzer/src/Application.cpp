@@ -6,8 +6,8 @@
 #include <string>
 
 #include "BubbleSortTest.hpp"
-#include "InsertionSortTest.hpp"
 #include "Core.hpp"
+#include "InsertionSortTest.hpp"
 #include "Test/Test.hpp"
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
 
   sf::RenderWindow window(
       sf::VideoMode(sortilyzer::_WIDTH, sortilyzer::_HEIGHT),
-      sortilyzer::windowTitle);
+      sortilyzer::windowTitle, sf::Style::Default);
 
   window.setActive(true);
   window.setFramerateLimit(sortilyzer::_FRAME_RATE);
@@ -50,6 +50,10 @@ int main() {
       currentTest->OnUpdate();
       ImGui::Begin("Test Menu");
 
+      if (ImGui::Button("Exit App")) {
+        isOpenWindow = false;
+      }
+
       if (currentTest != testMenu && ImGui::Button("<-")) {
         delete currentTest;
         currentTest = testMenu;
@@ -58,7 +62,6 @@ int main() {
 
       ImGui::End();
     }
-
     ImGui::SFML::Render(window);
     window.display();
   }
