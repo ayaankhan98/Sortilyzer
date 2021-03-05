@@ -5,10 +5,11 @@
 #include <cstdlib>
 #include <string>
 
-#include "BubbleSortTest.hpp"
 #include "Core.hpp"
-#include "InsertionSortTest.hpp"
 #include "Test/Test.hpp"
+#include "BubbleSortTest.hpp"
+#include "InsertionSortTest.hpp"
+#include "SelectionSortTest.hpp"
 
 int main() {
   srand(time(0));
@@ -32,7 +33,8 @@ int main() {
                                                            window);
   testMenu->RegisterTest<sortilyzer::test::InsertionSortTest>("Insertion Sort",
                                                               window);
-
+  testMenu->RegisterTest<sortilyzer::test::SelectionSortTest>("Selection Sort",
+                                                              window);
   while (isOpenWindow) {
     sf::Event e;
     while (window.pollEvent(e)) {
