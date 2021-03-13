@@ -43,8 +43,8 @@ Update it later on, once i plan to configure a build system.
 In case if you wish feel free to raise a PR for this.
 
 ## Test Drive
-- [Download x86 Debug mode executable](./Debug-x86/Sortilyzer.exe)
-- [Dowload x86 Release mode executable](./Release-x86/Sortilyzer.exe)
+- [Download x86 Debug mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-debug.exe)
+- [Dowload x86 Release mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-Release.exe)
 
 ## Preview
 <img src="./Preview/1.jpg">
