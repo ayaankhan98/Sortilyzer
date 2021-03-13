@@ -24,7 +24,7 @@ void Test::GenerateStripCoordinate() {
   for (int i = 0; i < SIZE; i++) {
     m_StripCoordinate[i] = sf::Vector2f(
         xPos + 10, static_cast<float>(768 - m_StripHeight[i] - 200));
-    xPos += _STRIP_WIDTH;
+    xPos += _STRIP_WIDTH + 2;
   }
 }
 

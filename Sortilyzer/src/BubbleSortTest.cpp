@@ -29,7 +29,7 @@ void sortilyzer::test::BubbleSortTest::OnRender() {
     sf::RectangleShape strip;
     strip.setFillColor(currentFillColor);
     strip.setPosition(m_StripCoordinate[i]);
-    strip.setOutlineColor(sf::Color::Magenta);
+    strip.setOutlineColor(sf::Color::Black);
     strip.setSize({static_cast<float>(sortilyzer::_STRIP_WIDTH),
                    static_cast<float>(m_StripHeight[i])});
     strip.setOutlineThickness(1.0);
