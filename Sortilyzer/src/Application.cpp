@@ -5,11 +5,12 @@
 #include <cstdlib>
 #include <string>
 
-#include "Core.hpp"
-#include "Test/Test.hpp"
 #include "BubbleSortTest.hpp"
+#include "Core.hpp"
 #include "InsertionSortTest.hpp"
+#include "QuickSortTest.hpp"
 #include "SelectionSortTest.hpp"
+#include "Test/Test.hpp"
 
 int main() {
   srand(time(0));
@@ -17,9 +18,8 @@ int main() {
   sf::RenderWindow window(
       sf::VideoMode(sortilyzer::_WIDTH, sortilyzer::_HEIGHT),
       sortilyzer::windowTitle, sf::Style::Default);
-
+  int *_FRAME_RATE = new int(30);
   window.setActive(true);
-  window.setFramerateLimit(sortilyzer::_FRAME_RATE);
 
   bool isOpenWindow = true;
   ImGui::SFML::Init(window);
@@ -35,7 +35,9 @@ int main() {
                                                               window);
   testMenu->RegisterTest<sortilyzer::test::SelectionSortTest>("Selection Sort",
                                                               window);
+  testMenu->RegisterTest<sortilyzer::test::QuickSortTest>("Quick Sort", window);
   while (isOpenWindow) {
+    window.setFramerateLimit(*_FRAME_RATE);
     sf::Event e;
     while (window.pollEvent(e)) {
       ImGui::SFML::ProcessEvent(e);
@@ -51,6 +53,7 @@ int main() {
       currentTest->OnRender();
       currentTest->OnUpdate();
       ImGui::Begin("Test Menu");
+      ImGui::SliderInt("FPS", _FRAME_RATE, 1, 100);
 
       if (ImGui::Button("Exit App")) {
         isOpenWindow = false;

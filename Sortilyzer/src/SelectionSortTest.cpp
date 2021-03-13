@@ -10,7 +10,6 @@ sortilyzer::test::SelectionSortTest::SelectionSortTest(sf::RenderWindow *window)
   std::cout << "Creating Bubble Sort Test\n";
 }
 
-
 void sortilyzer::test::SelectionSortTest::OnImGuiRender() {
   if (ImGui::Button("Restart Simulation")) {
     prevI = 0;
