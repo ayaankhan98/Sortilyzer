@@ -1,4 +1,7 @@
 # Sortilyzer
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f0641ec098fe4c33878783fcd70aca65)](https://app.codacy.com/gh/ayaankhan98/Sortilyzer?utm_source=github.com&utm_medium=referral&utm_content=ayaankhan98/Sortilyzer&utm_campaign=Badge_Grade_Settings)
+
 <p align="center">
   <img src="./Sortilyzer/assets/log-trans.png"></img>
 </p>
