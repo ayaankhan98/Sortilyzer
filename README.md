@@ -50,5 +50,8 @@ In case if you wish feel free to raise a PR for this.
 <img src="https://github.com/ayaankhan98/Sortilyzer/blob/master/Preview/1.JPG">
 <br/>
 <img src="https://github.com/ayaankhan98/Sortilyzer/blob/master/Preview/2.JPG">
+
+
 ## Contribution
+
 All PR are welcome.
