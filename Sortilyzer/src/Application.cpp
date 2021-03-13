@@ -25,6 +25,15 @@ int main() {
   ImGui::SFML::Init(window);
   sf::Clock deltaClock;
 
+  sf::Texture logo;
+  if (!logo.loadFromFile("assets/trans.png")) {
+    std::cout << "Unable to load logo\n";
+  }
+  sf::Sprite sp;
+  sp.setTexture(logo);
+  sp.setPosition({20.0f, 150.0f});
+  sp.setScale({0.2,0.2});
+
   sortilyzer::Test *currentTest(nullptr);
   sortilyzer::TestMenu *testMenu = new sortilyzer::TestMenu(currentTest);
   currentTest = testMenu;
@@ -49,6 +58,9 @@ int main() {
     ImGui::SFML::Update(window, deltaClock.restart());
 
     window.clear();
+    if (currentTest == testMenu) {
+      window.draw(sp);
+    }
     if (currentTest) {
       currentTest->OnRender();
       currentTest->OnUpdate();

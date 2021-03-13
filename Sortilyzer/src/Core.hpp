@@ -14,5 +14,5 @@ constexpr int _Y_DOWN_OFFSET = 200;
 constexpr int _MIN_STRIP_HEIGHT = 20;
 constexpr int _MAX_STRIP_HEIGHT = 400;
 
-const std::string windowTitle = "My Application Window";
+const std::string windowTitle = "Sortilyzer";
 } // namespace sortilyzer
