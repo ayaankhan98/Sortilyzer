@@ -1,6 +1,6 @@
 # Sortilyzer
 <p align="center">
-  <img src="./Sortilyzer/assets/trans.png"></img>
+  <img src="./Sortilyzer/assets/log-trans.png"></img>
 </p>
 
 Sortilyzer is a sorting algorithm visualizer, under MIT License. Sortilyzer codebase is written in C++17 using Visual Studio 2019. Using external dependencies as
