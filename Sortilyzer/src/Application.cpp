@@ -1,7 +1,7 @@
+#include <SFML/Graphics.hpp>
 #include <imgui-SFML.h>
 #include <imgui.h>
 
-#include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <string>
 
@@ -32,7 +32,7 @@ int main() {
   sf::Sprite sp;
   sp.setTexture(logo);
   sp.setPosition({20.0f, 150.0f});
-  sp.setScale({0.2,0.2});
+  sp.setScale({0.2, 0.2});
 
   sortilyzer::Test *currentTest(nullptr);
   sortilyzer::TestMenu *testMenu = new sortilyzer::TestMenu(currentTest);
