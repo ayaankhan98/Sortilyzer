@@ -12,7 +12,7 @@ sortilyzer::test::QuickSortTest::QuickSortTest(sf::RenderWindow *window) {
   lower.push(0);
   upper.push(N - 1);
   loc = getPivotAsMiddle(0, N - 1);
-  beg = end = left = right = - 1;
+  beg = end = left = right = -1;
   std::cout << "Creating Quick Sort Test\n";
 }
 

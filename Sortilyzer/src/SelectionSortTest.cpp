@@ -4,7 +4,8 @@
 
 #include "Core.hpp"
 
-sortilyzer::test::SelectionSortTest::SelectionSortTest(sf::RenderWindow *window) {
+sortilyzer::test::SelectionSortTest::SelectionSortTest(
+    sf::RenderWindow *window) {
   m_Window = window;
   prevI = 0;
   std::cout << "Creating Bubble Sort Test\n";
@@ -37,18 +38,18 @@ void sortilyzer::test::SelectionSortTest::OnRender() {
 }
 
 void sortilyzer::test::SelectionSortTest::OnUpdate() {
-    int min_idx;
-    for (int i = prevI; i < sortilyzer::SIZE - 1; i++) {
-      min_idx = i;
-      for (int j = i + 1; j < sortilyzer::SIZE; j++) {
-        if (m_StripHeight[j] < m_StripHeight[min_idx]) {
-          min_idx = j;
-        }
+  int min_idx;
+  for (int i = prevI; i < sortilyzer::SIZE - 1; i++) {
+    min_idx = i;
+    for (int j = i + 1; j < sortilyzer::SIZE; j++) {
+      if (m_StripHeight[j] < m_StripHeight[min_idx]) {
+        min_idx = j;
       }
-      std::swap(m_StripHeight[min_idx], m_StripHeight[i]);
-      prevI = ++i;
-      break;
     }
+    std::swap(m_StripHeight[min_idx], m_StripHeight[i]);
+    prevI = ++i;
+    break;
+  }
 
   for (int i = 0; i < sortilyzer::SIZE; i++) {
     m_StripCoordinate[i].y = static_cast<float>(
