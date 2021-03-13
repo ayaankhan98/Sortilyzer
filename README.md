@@ -47,9 +47,8 @@ In case if you wish feel free to raise a PR for this.
 - [Dowload x86 Release mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-Release.exe)
 
 ## Preview
-<img src="./Preview/1.jpg">
+<img src="https://github.com/ayaankhan98/Sortilyzer/blob/master/Preview/1.JPG">
 <br/>
-<img src="./Preview/2.jpg">
-
+<img src="https://github.com/ayaankhan98/Sortilyzer/blob/master/Preview/2.JPG">
 ## Contribution
 All PR are welcome.
