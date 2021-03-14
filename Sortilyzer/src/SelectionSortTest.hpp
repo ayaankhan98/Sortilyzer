@@ -6,7 +6,7 @@ namespace sortilyzer {
 namespace test {
 class SelectionSortTest : public Test {
 public:
-  SelectionSortTest(sf::RenderWindow *);
+  explicit SelectionSortTest(sf::RenderWindow *);
   ~SelectionSortTest() { std::cout << "Destroying Selection Sort Test\n"; }
 
   void OnRender() override;

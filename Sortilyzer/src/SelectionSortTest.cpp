@@ -38,9 +38,8 @@ void sortilyzer::test::SelectionSortTest::OnRender() {
 }
 
 void sortilyzer::test::SelectionSortTest::OnUpdate() {
-  int min_idx;
   for (int i = prevI; i < sortilyzer::SIZE - 1; i++) {
-    min_idx = i;
+    int min_idx = i;
     for (int j = i + 1; j < sortilyzer::SIZE; j++) {
       if (m_StripHeight[j] < m_StripHeight[min_idx]) {
         min_idx = j;

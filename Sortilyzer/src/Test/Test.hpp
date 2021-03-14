@@ -24,7 +24,7 @@ public:
 
 class TestMenu : public Test {
 public:
-  TestMenu(Test *&currentTestPointer);
+  explicit TestMenu(Test *&currentTestPointer);
 
   void OnImGuiRender() override;
 

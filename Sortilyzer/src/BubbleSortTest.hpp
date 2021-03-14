@@ -5,7 +5,7 @@ namespace sortilyzer {
 namespace test {
 class BubbleSortTest : public Test {
 public:
-  BubbleSortTest(sf::RenderWindow *);
+  explicit BubbleSortTest(sf::RenderWindow *);
   ~BubbleSortTest() { std::cout << "Destroyed Bubble Sort Test\n"; }
   void OnUpdate() override;
   void OnRender() override;

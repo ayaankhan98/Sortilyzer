@@ -7,7 +7,7 @@ namespace sortilyzer {
 namespace test {
 class QuickSortTest : public Test {
 public:
-  QuickSortTest(sf::RenderWindow *);
+  explicit QuickSortTest(sf::RenderWindow *);
   ~QuickSortTest() { std::cout << "Destroying QuickSort Test\n"; }
 
   void OnRender() override;

@@ -7,7 +7,7 @@ namespace test {
 
 class InsertionSortTest : public Test {
 public:
-  InsertionSortTest(sf::RenderWindow *);
+  explicit InsertionSortTest(sf::RenderWindow *);
   ~InsertionSortTest() { std::cout << "Destroyed Insertion Sort Test\n"; }
 
   void OnUpdate() override;
