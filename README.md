@@ -50,7 +50,7 @@ Check `bin` folder for executable file to run the app
 
 ## Test Drive
 - [Download x86 Debug mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-debug.exe)
-- [Dowload x86 Release mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-Release.exe)
+- [Download x86 Release mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-Release.exe)
 
 ## Preview
 <img src="https://github.com/ayaankhan98/Sortilyzer/blob/master/Preview/1.JPG">
