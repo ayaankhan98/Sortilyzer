@@ -42,8 +42,11 @@ After setting all these you will successfully be able to build Sortilyzer on you
 Provided here a basic overview for how to setup on local system, In case of any problem feel free to open issue regarding.
 
 #### Linux
-Update it later on, once i plan to configure a build system.
-In case if you wish feel free to raise a PR for this.
+- Install SFML, glfw, GLUT, GL, GLU, GLEW
+- run `./premake gmake`
+- run `make`
+
+Check `bin` folder for executable file to run the app
 
 ## Test Drive
 - [Download x86 Debug mode executable](https://github.com/ayaankhan98/Sortilyzer/releases/download/1.0.0/Sortilyzer-x86-debug.exe)

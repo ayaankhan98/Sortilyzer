@@ -26,7 +26,7 @@ int main() {
   sf::Clock deltaClock;
 
   sf::Texture logo;
-  if (!logo.loadFromFile("assets/trans.png")) {
+  if (!logo.loadFromFile("./assets/trans.png")) {
     std::cout << "Unable to load logo\n";
   }
   sf::Sprite sp;
