@@ -386,3 +386,7 @@ MigrationBackup/
 # Build
 Debug/
 Release/
+bin/
+bin-int/
+Makefile
+*.make
