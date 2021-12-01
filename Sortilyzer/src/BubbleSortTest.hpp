@@ -13,7 +13,7 @@ public:
 
 private:
   sf::RenderWindow *m_Window;
-  float m_StripColor[4] = {0.0, 0.9, 0.0, 1.0};
+  float m_StripColor[4] = {0.7, 0.9, 0.7, 1.0};
   int prevI, prevJ;
 };
 } // namespace test

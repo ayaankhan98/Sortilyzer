@@ -18,7 +18,7 @@ private:
   int getPivotAsMiddle(int start, int end);
   void quick();
   sf::RenderWindow *m_Window;
-  float m_StripColor[4] = {0.0, 0.9, 0.0, 1.0};
+  float m_StripColor[4] = {0.7, 0.9, 0.7, 1.0};
   std::stack<int> lower, upper;
   int N, loc, beg, end, left, right;
   bool state = false;
